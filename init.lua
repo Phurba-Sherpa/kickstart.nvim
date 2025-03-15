@@ -18,6 +18,7 @@ require("lazy").setup({
 
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+	"ThePrimeagen/vim-be-good",
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
@@ -84,13 +85,13 @@ require("lazy").setup({
 	},
 	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
-{
-    'numToStr/Comment.nvim',
-    opts = {
-        -- add any options here
-    }
-},
--- nvim-ts-context-commentstring setup
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+	},
+	-- nvim-ts-context-commentstring setup
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		config = function()
@@ -117,7 +118,7 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.vimfugitive"),
 	require("plugins.colorschemes"),
-	require("plugins.indentline"),
+	-- require("plugins.indentline"),
 	require("plugins.method-fold"),
 }, {
 	ui = {

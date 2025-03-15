@@ -166,6 +166,7 @@ return {
 			cssls = {},
 			tailwindcss = {},
 			jsonls = {},
+			gopls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
