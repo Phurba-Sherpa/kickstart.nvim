@@ -14,18 +14,35 @@
 -- 	end,
 -- }
 
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000, -- Make sure to load this before all the other start plugins.
+-- 	init = function()
+-- 		vim.cmd.colorscheme("tokyonight-night")
+-- 		vim.cmd.hi("Comment gui=none")
+-- 		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6e7681" })
+-- 		vim.api.nvim_set_hl(0, "LineNr", { fg = "white" })
+-- 		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6e7681" })
+-- 	end,
+-- 	opts = {
+-- 		transparent = false,
+-- 	},
+-- }
 return {
-	"folke/tokyonight.nvim",
-	priority = 1000, -- Make sure to load this before all the other start plugins.
-	init = function()
-		vim.cmd.colorscheme("tokyonight-night")
-		vim.cmd.hi("Comment gui=none")
-		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6e7681" })
-		vim.api.nvim_set_hl(0, "LineNr", { fg = "white" })
-		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6e7681" })
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function()
+		require("rose-pine").setup({
+			variant = "auto",
+			dark_variant = "main",
+			styles = {
+				bold = true,
+				italic = false,
+				transparency = false,
+			},
+		})
+		vim.cmd("colorscheme rose-pine")
 	end,
-	opts = {
-		transparent = false,
-	},
 }
+--
 -- Install without configuration
