@@ -216,5 +216,4 @@ return {
 				end,
 			},
 		})
-	end,
-}
+	end, }
