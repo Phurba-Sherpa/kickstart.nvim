@@ -7,7 +7,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
-vim.o.fileencoding = 'utf-8'
+vim.o.encoding = 'utf-8'
 vim.o.colorcolumn = '100'
 vim.g.skip_ts_context_commentstring_module = true
 
@@ -59,10 +59,6 @@ vim.api.nvim_create_autocmd('User', {
       }
     end
 
-    local ok_ts, ts = pcall(require, 'nvim-treesitter')
-    if ok_ts then
-      ts.install { 'css', 'javascript', 'typescript', 'tsx', 'go', 'json' }
-    end
   end,
 })
 

@@ -111,6 +111,44 @@ return {
       },
     },
   },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
+    branch = 'main',
+    config = function()
+      local filetypes = {
+        'bash',
+        'c',
+        'typescript',
+        'javascript',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'css',
+        'tsx',
+        'go',
+        'json',
+      }
+
+      vim.schedule(function()
+        require('nvim-treesitter').install(filetypes)
+      end)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = filetypes,
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
+    end,
+  },
   { 'folke/tokyonight.nvim', enabled = false },
   {
     'rose-pine/neovim',

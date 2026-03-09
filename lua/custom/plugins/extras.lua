@@ -4,7 +4,6 @@ return {
   { import = 'kickstart.plugins.debug' },
   { import = 'kickstart.plugins.indent_line' },
   { import = 'kickstart.plugins.autopairs' },
-  { import = 'kickstart.plugins.neo-tree' },
 
   {
     'mfussenegger/nvim-lint',
@@ -85,6 +84,13 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter' },
     opts = {
       opts = { log_level = 'DEBUG' },
+    },
+  },
+  {
+    'folke/snacks.nvim',
+    opts = {
+      input = {},
+      picker = {},
     },
   },
   {
