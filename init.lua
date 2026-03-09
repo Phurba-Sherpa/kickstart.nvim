@@ -4,16 +4,33 @@ require("core.keymaps")
 
 vim.o.termguicolors = true
 vim.g.skip_ts_context_commentstring_module = true
+
+-- [[ Install `lazy.nvim` plugin manager ]]
+--    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 	if vim.v.shell_error ~= 0 then
 		error("Error cloning lazy.nvim:\n" .. out)
 	end
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+end
 
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
+
+-- [[ Configure and install plugins ]]
+--
+--  To check the current status of your plugins, run
+--    :Lazy
+--
+--  You can press `?` in this menu for help. Use `:q` to close the window
+--
+--  To update plugins you can run
+--    :Lazy update
+--
+-- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
@@ -41,7 +58,7 @@ require("lazy").setup({
 	},
 
 	{ -- Collection of various small independent plugins/modules
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		config = function()
 			-- Better Around/Inside textobjects
 			--
@@ -74,7 +91,7 @@ require("lazy").setup({
 			end
 
 			-- ... and there is more!
-			--  Check out: https://github.com/echasnovski/mini.nvim
+			--  Check out: https://github.com/nvim-mini/mini.nvim
 		end,
 	},
 	{
@@ -117,16 +134,17 @@ require("lazy").setup({
 	require("plugins.lint"),
 	require("plugins.gitsigns"),
 	require("plugins.vimfugitive"),
-	require("plugins.debugging"),
+	require("plugins.debug"),
 	require("plugins.colorschemes"),
 	require("plugins.typr"),
 	require("plugins.smear"),
-	-- require("plugins.indentline"),
+	require("plugins.indentline"),
 	require("plugins.method-fold"),
 	require("plugins.markdown"),
 	require("plugins.twilight"),
 	require("plugins.zen-mode"),
 	require("plugins.codecompanion"),
+	require("plugins.oc"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
