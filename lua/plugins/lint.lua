@@ -8,10 +8,10 @@ return {
 			lint.linters_by_ft = {
 				markdown = { "markdownlint" },
 				json = { "jsonlint" },
-				javascript = { "eslint" },
-				javascriptreact = { "eslint" },
-				typescript = { "eslint" },
-				typescriptreact = { "eslint" },
+				-- javascript = { "eslint" },
+				-- javascriptreact = { "eslint" },
+				-- typescript = { "eslint" },
+				-- typescriptreact = { "eslint" },
 			}
 
 			-- Create autocommand which carries out the actual linting
